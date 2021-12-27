@@ -9,7 +9,7 @@ jobs:
     # Use the same Docker base as the project
       - image: python:3.7.3-stretch   
 
-    working_directory: ~/project-ml-microservice-kubernetes
+    working_directory: project-ml-microservice-kubernetes
 
     steps:
       - checkout
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: print path
           command: |
-            cd ./
+            cd project-ml-microservice-kubernetes
             ls
       
 
@@ -31,7 +31,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            #cd ~/project/project-ml-microservice-kubernetes
+            cd project-ml-microservice-kubernetes
             python3 -m venv venv
             . venv/bin/activate
             make install
@@ -47,6 +47,6 @@ jobs:
       - run:
           name: run lint
           command: |
-            #cd ~/project/project-ml-microservice-kubernetes
+            cd project-ml-microservice-kubernetes
             . venv/bin/activate
             make lint
