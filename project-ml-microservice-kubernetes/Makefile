@@ -8,8 +8,7 @@
 create_venv:
 	# Create python virtualenv & source it
 	# source ~/.devops/bin/activate
-	python3 -m venv ~/.devops &&\
-		source ~/.devops/bin/activate
+	python3 -m venv ~/.devops
 setup:
 
 	source ~/.devops/bin/activate
