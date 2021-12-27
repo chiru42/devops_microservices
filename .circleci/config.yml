@@ -17,7 +17,8 @@ jobs:
       - run:
           name: print path
           command: |
-            pwd
+            cd ./
+            ls
       
 
     # Download and cache dependencies
