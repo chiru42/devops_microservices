@@ -15,13 +15,12 @@ jobs:
       - checkout:
           path: ~/devops_microservices
       
-      - run:
-          name: print path
-          command: |
-            pwd
-            ls
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       
-
       - run:
           name: install dependencies
           command: |
@@ -32,5 +31,15 @@ jobs:
             # Install hadolint
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
             chmod +x /bin/hadolint
+            
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}      
             make lint
-     
+      - run:
+          name: Run Lint
+          command: |
+            #cd project-ml-microservice-kubernetes
+            . venv/bin/activate
+            make lint
