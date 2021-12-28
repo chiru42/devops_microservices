@@ -62,5 +62,6 @@ jobs:
             make test
 workflows:
   default:
-    - build
-    - test
+    jobs:
+      - build
+      - test
