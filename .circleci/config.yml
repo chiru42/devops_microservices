@@ -12,7 +12,7 @@ jobs:
     working_directory: ~/devops_microservices/project-ml-microservice-kubernetes
 
     steps:
-      - checkout
+      - checkout:
           path: ~/devops_microservices
       
       - run:
