@@ -10,7 +10,7 @@ dockerpath='chiru42/api:latest'
 
 # Step 2:  
 # Authenticate & tag
-docker login -u chiru42 -p @password8
+docker login -u $docker_USERNAME -p $docker_PASSWORD
 echo "Docker ID and Image: $dockerpath"
 #docker tag local-image:udacity_devops new-repo:udacity_devops
 # Step 3:
