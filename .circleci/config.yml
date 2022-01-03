@@ -64,10 +64,10 @@ jobs:
 workflows:
   default:
     jobs:
-      - build
-          #filters:
-            #branches:
-              #only: [branch]
-      - test
-          #requires:
-            #- build
+      - build:
+          filters:
+            branches:
+              only: [branch]
+      - test:
+          requires:
+            - build
